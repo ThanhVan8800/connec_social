@@ -42,7 +42,7 @@ class CreatePost extends Component
                 "group_id" => $this->type == "group" ? $this->iid : Null,
                 "page_id" => $this->type == "page" ? $this->iid : Null,
                 "content" => $this->content,
-                'status' => 'pending'
+                'status' => 'pending',
             ]);
             $images = [];
             if($this->images){
@@ -76,7 +76,7 @@ class CreatePost extends Component
         unset($this->video);
         $this->dispatchBrowserEvent('alert',[
             'type' => 'success',
-            'message' => 'Your post his been published'
+            'message' => 'Your post will be  published shortly.'
 
         ]);
     }

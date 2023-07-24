@@ -9,8 +9,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class SavedPost extends Model
 {
     use HasFactory;
-    public function user(): BelongsTo
+    protected $fillable= [
+        'user_id',
+        'post_id',
+    ];
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id');
     }
 }

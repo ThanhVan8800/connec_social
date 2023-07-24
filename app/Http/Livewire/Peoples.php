@@ -14,6 +14,13 @@ class Peoples extends Component
     use WithPagination;
     public $paginator = 10;
     public $search;
+    public $listeners = [
+        'load-more' => 'LoadMore',
+    ];
+    public function LoadMore()
+    {
+        $this->paginator = $this->paginator+5;
+    }
     public function acceptfriend($id)
     {
         $user = User::where('id', $id)->first();

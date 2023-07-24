@@ -34,7 +34,7 @@ class CreateGroup extends Component
 
         DB::beginTransaction();
         try {
-            $page = Group::create([
+            $group = Group::create([
                 "uuid" => Str::uuid(),
                 "user_id" => auth()->id(),
                 "icon" => $this->icon->store("groups", "public"),
@@ -46,18 +46,18 @@ class CreateGroup extends Component
             ]);
             GroupMember::create([
                 "user_id" => auth()->id(),
-                "group_id" => $page->id
+                "group_id" => $group->id
             ]);
 
             Notification::create([
                 "type" => "create_page",
                 "user_id" => auth()->id(),
-                "message" => $page->name . " group his been created successfully.",
-                "url" => route("page", $page->uuid),
+                "message" => $group->name . " group his been created successfully.",
+                "url" => route("page", $group->uuid),
             ]);
 
             $this->dispatchBrowserEvent('alert', [
-                "type" => "success", "message" =>  $page->name . " group  his been created successfully."
+                "type" => "success", "message" =>  $group->name . " group  his been created successfully."
             ]);
             DB::commit();
         } catch (\Throwable $th) {
@@ -65,7 +65,7 @@ class CreateGroup extends Component
             throw $th;
         }
 
-        return to_route("group", $page->uuid);
+        return to_route("group", $group->uuid);
     }
     public function render()
     {

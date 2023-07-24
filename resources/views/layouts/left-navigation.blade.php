@@ -8,25 +8,25 @@
                     <div class="nav-caption fw-600 font-xssss text-grey-500"><span>New </span>Feeds</div>
                     <ul class="mb-1 top-content">
                         <li class="logo d-none d-xl-block d-lg-block"></li>
-                        <li><a href="default.html" class="nav-content-bttn open-font"><i
+                        <li><a href="{{ config('app.url') }}" class="nav-content-bttn open-font"><i
                                     class=" btn-round-md bg-blue-gradiant me-3">{!! $icons->getIcon('tv') !!}</i><span>Newsfeed</span></a>
                         </li>
-                        <li><a href="default-badge.html" class="nav-content-bttn open-font"><i
-                                    class=" btn-round-md bg-red-gradiant me-3">{!! $icons->getIcon('award') !!}</i><span>Badges</span></a>
+                        <li><a href="{{ route('pages') }}" class="nav-content-bttn open-font"><i
+                                    class=" btn-round-md bg-red-gradiant me-3">{!! $icons->getIcon('award') !!}</i><span>Pages</span></a>
                         </li>
-                        <li><a href="default-storie.html" class="nav-content-bttn open-font"><i
-                                    class=" btn-round-md bg-gold-gradiant me-3"></i><span>Explore
+                        <li><a href="{{route('explore')}}" class="nav-content-bttn open-font"><i
+                                    class=" btn-round-md bg-gold-gradiant me-3">{!!$icons->getIcon('globe')!!}</i><span>Explore
                                     Stories</span></a></li>
-                        <li><a href="default-group.html" class="nav-content-bttn open-font"><i
+                        <li><a href="{{route('groups')}}" class="nav-content-bttn open-font"><i
                                     class="- btn-round-md bg-mini-gradiant me-3">{!! $icons->getIcon('zap') !!}</i><span>Popular
                                     Groups</span></a></li>
-                        <li><a href="user-page.html" class="nav-content-bttn open-font"><i
+                        <li><a href="{{route('settings.account_information')}}" class="nav-content-bttn open-font"><i
                                     class=" btn-round-md bg-primary-gradiant me-3">{!! $icons->getIcon('user') !!}</i><span>Author Profile
                                 </span></a></li>
                     </ul>
                 </div>
 
-                <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2">
+                <!-- <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2">
                     <div class="nav-caption fw-600 font-xssss text-grey-500"><span>More </span>Pages</div>
                     <ul class="mb-3">
                         <li><a href="default-email-box.html" class="nav-content-bttn open-font"><i
@@ -41,17 +41,15 @@
                                     class="font-xl text-current feather-youtube me-3"></i><span>Live Stream</span></a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1">
                     <div class="nav-caption fw-600 font-xssss text-grey-500"><span></span> Account</div>
                     <ul class="mb-1">
                         <li class="logo d-none d-xl-block d-lg-block"></li>
-                        <li><a href="default-settings.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
-                                    class="font-sm feather-settings me-3 text-grey-500"></i><span>Settings</span></a>
+                        <li><a href="{{route('settings')}}" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
+                                    class="font-sm  me-3 text-grey-500">{!!$icons->getIcon('settings')!!}</i><span>Settings</span></a>
                         </li>
-                        <li><a href="default-analytics.html" class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
-                                    class="font-sm feather-pie-chart me-3 text-grey-500"></i><span>Analytics</span></a>
-                        </li>
+                        
                         <li>
                             <a href="{{route('chatify')}}" class="nav-content-bttn open-font h-auto pt-2 pb-2">
                             <i class="font-sm  me-3 text-grey-500">{!!$icons->getIcon('message-circle')!!}</i><span>Chat</span><span

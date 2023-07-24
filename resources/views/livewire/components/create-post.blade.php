@@ -31,7 +31,7 @@
     @endif
     @if($video)
             <video src="{{$video->temporaryUrl()}}"></video>
-    @endif
+    @endif  
     <style>
         .pos{
             display: flex;
@@ -75,43 +75,11 @@
                     <span class="text-danger">{{$message}}</span>
                 @enderror
         </a>
-        <a href="#" class="d-flex align-items-center font-xssss fw-600 ls-1 text-grey-700 text-dark pe-4"><i
-                class="font-md text-warning feather-camera me-2"></i><span class="d-none-xs">Feeling/Activity</span></a>
-        <a href="#" class="ms-auto" id="dropdownMenu4" data-bs-toggle="dropdown" aria-expanded="false"><i
-                class="ti-more-alt text-grey-900 btn-round-md bg-greylight font-xss"></i></a>
         <div class="card-body p-0 d-flex mt-2">
             <button style="outline:none;border:none;border-radius:43px" type="submit"
                 class="outline-none ms-auto border-none bg-none text-gray-900 hover:bg-blue-200">
-                <i class="">Send</i>
+                <i class="">{!!$icons->getIcon('send',['fill'=>'blue'])!!}</i>
             </button>
-        </div>
-        <div class="dropdown-menu dropdown-menu-start p-4 rounded-xxl border-0 shadow-lg"
-            aria-labelledby="dropdownMenu4">
-            <div class="card-body p-0 d-flex">
-                <i class="feather-bookmark text-grey-500 me-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Save Link <span
-                        class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Add this to your
-                        saved items</span></h4>
-            </div>
-            <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-alert-circle text-grey-500 me-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Hide Post <span
-                        class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your
-                        saved items</span></h4>
-            </div>
-            <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-alert-octagon text-grey-500 me-3 font-lg"></i>
-                <h4 class="fw-600 text-grey-900 font-xssss mt-0 me-4">Hide all from Group <span
-                        class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your
-                        saved items</span></h4>
-            </div>
-            <div class="card-body p-0 d-flex mt-2">
-                <i class="feather-lock text-grey-500 me-3 font-lg"></i>
-                <h4 class="fw-600 mb-0 text-grey-900 font-xssss mt-0 me-4">Unfollow Group <span
-                        class="d-block font-xsssss fw-500 mt-1 lh-3 text-grey-500">Save to your
-                        saved items</span></h4>
-            </div>
-
         </div>
     </div>
 </form>

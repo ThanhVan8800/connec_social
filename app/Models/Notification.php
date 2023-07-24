@@ -16,7 +16,7 @@ class Notification extends Model
         'url',
         'read_at'
     ];
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
     }

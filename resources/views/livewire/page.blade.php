@@ -30,7 +30,7 @@
                                                     <img src="{{asset('storage').'/'.$pa->icon}}" alt="image" class="float-right p-1 bg-white rounded-circle w-100">
                                                 </figure>
                                                 <div class="clearfix"></div>
-                                                <h4 class="fw-700 font-xss mt-3 mb-0">{{$pa->name}} </h4>
+                                                <h4 class="fw-700 font-xss mt-3 mb-0"><a href="{{route('page',$pa->uuid)}}">{{$pa->name}}</a> </h4>
                                                 <p class="fw-500 font-xssss text-grey-500 mt-0 mb-3">{{$pa->page->email}}</p>
                                                 <ul class="d-flex align-items-center justify-content-center mt-1">
                                                     <li class="m-2"><h4 class="fw-700 font-sm">500+ <span class="font-xsssss fw-500 mt-1 text-grey-500 d-block">Connections</span></h4></li>

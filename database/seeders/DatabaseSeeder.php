@@ -70,7 +70,47 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        for ($i = 0; $i < 100; $i++) {
+            Post::create([
+                "uuid" => Str::uuid(),
+                "user_id" => User::InRandomOrder()->first()->id,
+                "icon" => "pages/abc.jpg",
+                "thumbnail" => "pages/abc.jpg",
+                "description" => fake()->sentence(rand(10, 50)),
+                "name" => fake()->name(),
+                "location" => fake()->sentence(3),
+                "type" => fake()->sentence(3),
+                "members" => rand(200, 10000),
+            ]);
+        }
 
+        for ($i = 0; $i < 100; $i++) {
+            Post::create([
+                "uuid" => Str::uuid(),
+                "user_id" => $user->id,
+                "icon" => "pages/abc.jpg",
+                "thumbnail" => "pages/abc.jpg",
+                "content" => fake()->sentence(rand(10, 50)),
+                "page_id" => $page->id,
+                'is_page_post' => 1,
+                'status' => 'pending',
+                "likes" => rand(200, 10000),
+                "comments" => rand(200, 10000),
+            ]);
+        }
+
+        for ($i = 0; $i < 100; $i++) {
+            Post::create([
+                "uuid" => Str::uuid(),
+                "user_id" => $user->id,
+                "content" => fake()->sentence(rand(10, 50)),
+                "group_id" => $group->id,
+                'status' => 'pending',
+                'is_group_post' => 1,
+                "likes" => rand(200, 10000),
+                "comments" => rand(200, 10000),
+            ]);
+        }
 
         $user = User::create([
             'uuid' => Str::uuid(),
@@ -98,11 +138,13 @@ class DatabaseSeeder extends Seeder
             "members" => rand(200, 10000),
         ]);
 
+        
+
         $group = Group::create([
             "uuid" => Str::uuid(),
             "user_id" => $user->id,
-            "icon" => "pages/txx.jpg",
-            "thumbnail" => "pages/txx.jpg",
+            "icon" => "groups/PPkgajdx8gA1jb9tuk3D6tMTFJeKObHtUzgnGxpC.jpg",
+            "thumbnail" => "groups/PPkgajdx8gA1jb9tuk3D6tMTFJeKObHtUzgnGxpC.jpg",
             "description" => fake()->sentence(rand(10, 50)),
             "name" => fake()->name(),
             "location" => fake()->sentence(3),

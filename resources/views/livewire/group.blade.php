@@ -272,7 +272,7 @@
                         </div>
 
                     @empty
-                        <h1 class="text-center text-danger">No Post Fund!</h1>
+                        <h1 class="text-center text-danger">No Post Found!</h1>
                     @endforelse
 
                 </div>

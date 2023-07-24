@@ -32,17 +32,15 @@ class User extends Component
             // dd($post_media);
             return view('livewire.user',[
                 'user' => $us,
-                'post_id' => $post_id,
+                'posts' => $posts,
                 'post_media' => $post_media
                 ])->extends('layouts.app');
         }else{
-            $post_media = PostMedia::whereIn('post_id',$post_id)->where('file_type','image')->get();
-
-            return view('livewire.user-media',[
-                'user' => $us,
-                'post_id' => $post_id,
-                'post_media' => $post_media
-                ])->extends('layouts.app');
+            $posts_media = PostMedia::whereIn("post_id", $post_id)->pluck("post_id");
+            return view('livewire.user-media', [
+                "user" => $us,
+                "posts" => Post::whereIn("id", $posts_media)->get(),
+            ])->extends("layouts.app");
         }
     }
     public function like($id)

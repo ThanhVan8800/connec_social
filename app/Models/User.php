@@ -38,6 +38,13 @@ class User extends Authenticatable
     public function is_friend(){
         return (Friend::where('user_id', $this->id)->orWhere('friend_id', $this->id)->first()->status??"");
     }
+    //* Đếm số lượng bạn chung
+    public function mutual_friends()
+    {
+        $my_friend_friends = Friend::where('user_id', $this->id)->orWhere('friend_id', $this->id)->pluck('id')->toArray();
+        $my_friend = Friend::where("user_id", auth()->id())->OrWhere("friend_id", auth()->id())->pluck("id")->toArray();
+        return count(array_intersect($my_friend, $my_friend_friends));
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

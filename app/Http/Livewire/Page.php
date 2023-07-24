@@ -67,6 +67,10 @@ class Page extends Component
     }
     public function render()
     {
+        // $page = ModelsPage::where("uuid", $this->uuid)->firstOrFail();
+        // $posts_ids = Post::where("page_id", $page->id)->where("status", "published")->pluck("id");
+        // $posts = Post::where("page_id", $page->id)->paginate($this->paginate_no);
+        // $post_media = PostMedia::whereIn("post_id", $posts_ids)->where("file_type", "image")->take(10);
         $page = PageModel::with('page')->where('name','LIKE','%'.$this->search.'%')->orderBy('members')->paginate($this->paninator);
         return view('livewire.page',[
             'pages' => $page

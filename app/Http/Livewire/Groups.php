@@ -8,7 +8,7 @@ use App\Models\GroupMember;
 use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
 
-    class Groups extends Component
+class Groups extends Component
 {
     public $search;
     public $paginator = 10;

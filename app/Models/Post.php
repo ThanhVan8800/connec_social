@@ -12,6 +12,7 @@ class Post extends Model
             "uuid",
             "user_id",
             'content',
+            'is_public',
             "status",
             "likes",
             "comments",
@@ -24,11 +25,11 @@ class Post extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-    public function group(): BelongsTo
+    public function group()
     {
         return $this->belongsTo(Group::class, 'group_id');
     }
-    public function page(): BelongsTo
+    public function page()
     {
         return $this->belongsTo(Page::class, 'group_id');
     }
